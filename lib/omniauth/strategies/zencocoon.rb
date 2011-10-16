@@ -1,4 +1,5 @@
 require 'omniauth-oauth2'
+require 'multi_json'
 
 module OmniAuth
   module Strategies
@@ -8,10 +9,6 @@ module OmniAuth
         :authorize_url => 'https://testauthprovider.heroku.com/oauth2/authorize',
         :token_url => 'https://testauthprovider.heroku.com/oauth2/token'
       }
-
-      def request_phase
-        super
-      end
 
       uid { raw_info['id'] }
 
@@ -24,8 +21,7 @@ module OmniAuth
       end
 
       def raw_info
-        access_token.options[:mode] = :query
-        @raw_info ||= access_token.get('/me').parsed
+        @raw_info ||= MultiJson.decode(access_token.get('/me').body)
       end
     end
   end
