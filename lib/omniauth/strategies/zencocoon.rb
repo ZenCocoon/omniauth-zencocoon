@@ -5,9 +5,9 @@ module OmniAuth
   module Strategies
     class ZenCocoon < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        :site => 'https://testauthprovider.heroku.com',
-        :authorize_url => 'https://testauthprovider.heroku.com/oauth2/authorize',
-        :token_url => 'https://testauthprovider.heroku.com/oauth2/token'
+        :site => 'https://testoauth2provider.heroku.com',
+        :authorize_url => 'https://testoauth2provider.heroku.com/oauth2/authorize',
+        :token_url => 'https://testoauth2provider.heroku.com/oauth2/token'
       }
 
       uid { raw_info['id'] }
