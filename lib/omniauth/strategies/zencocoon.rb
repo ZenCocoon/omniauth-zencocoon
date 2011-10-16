@@ -5,8 +5,8 @@ module OmniAuth
     class ZenCocoon < OmniAuth::Strategies::OAuth2
       option :client_options, {
         :site => 'https://testauthprovider.heroku.com',
-        :authorize_url => 'https://testauthprovider.heroku.com/oauth/authorize',
-        :token_url => 'https://testauthprovider.heroku.com/oauth/access_token'
+        :authorize_url => 'https://testauthprovider.heroku.com/oauth2/authorize',
+        :token_url => 'https://testauthprovider.heroku.com/oauth2/token'
       }
 
       def request_phase
